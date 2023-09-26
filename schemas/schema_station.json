@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title" : "eLTER Station",
+    "description" : "validate eLTER station reports",
+    "type" : "object",
+    "properties" : {
+        "SITE_CODE" : {
+            "type" : "string",
+            "pattern" : "^https://deims.org/site/[a-zA-Z0-9]{8}-([a-zA-Z0-9]{4}-){3}[a-zA-Z0-9]{12}$",
+            "description" : "Site code [URL] - reference to LTER site and LTSER Platform on DEIMS-SDR. Please provide the deims.id for the site or platform"
+        },
+        "STATION_CODE" : {"type" : "string", "description" : " ... "},
+        "LAT" : {"$ref" : "https://gist.github.com/1O/d571c01709cbdd1eaa240e80b19d5f41/raw/6efddac10e34e7416eff60fa7783b55f4a76d981/latitude.json"},
+        "LON" : {"$ref" : "https://gist.github.com/1O/f1d57729dcf86164ef5abb3b1b9504c3/raw/8080f8c1b7ec4ddcdfce01eff0d0cdc9027c40ba/longitude.json"},
+        "STYPE" : {
+            "description" : "spatial type; specified elsewhere",
+            "$ref" : "https://gist.github.com/1O/998fab2c15674eb4f094c3a75993af79/raw/91d2f51c97e67a005d4072d3f236a7c926acbfee/STYPE.json"
+        }
+    },
+    "required" : ["SITE_CODE", "STATION_CODE", "STYPE", "LON", "LAT"]   
+}
